@@ -8,9 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260302-2" />
 </head>
-<body>
+<body class="loading">
+  <div class="scroll-progress" aria-hidden="true"><i id="scroll-progress-bar"></i></div>
   <div class="section-transition" aria-hidden="true"></div>
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader-text">
@@ -19,6 +20,7 @@
       <span class="loader-char">I</span>
       <span class="loader-char">F</span>
     </div>
+    <p class="loader-subtext">Crafting Motion + Systems</p>
   </div>
 
   <div class="noise"></div>
@@ -27,11 +29,14 @@
 
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-distort" aria-hidden="true"></div>
+  <div class="hero-spotlight" aria-hidden="true"></div>
 
   <header class="topbar">
     <a class="logo" href="#home">K.</a>
     <nav>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#github">GitHub</a>
@@ -113,6 +118,27 @@
             <span>Python</span><span>FastAPI</span><span>Django</span><span>Flask</span><span>Java</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>Docker</span><span>CI/CD</span><span>Git</span><span>Machine Learning</span><span>TensorFlow</span><span>PyTorch</span>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="section-head reveal">
+        <p># skills.json</p>
+        <h2>Interactive Skills Globe</h2>
+      </div>
+      <div class="skills-universe reveal" id="skills-universe">
+        <div class="skills-grid-bg" aria-hidden="true"></div>
+        <svg class="skills-links" id="skills-links" aria-hidden="true"></svg>
+        <div class="skills-core" aria-hidden="true">
+          <div class="skills-mesh"></div>
+          <span>Kaif Core</span>
+        </div>
+        <div class="skills-orbit" id="skills-orbit"></div>
+        <div class="skills-side-dots" id="skills-side-dots" aria-hidden="true">
+          <i></i><i></i><i class="active"></i><i></i><i></i>
+        </div>
+        <div class="skills-tooltip" id="skills-tooltip" aria-hidden="true"></div>
+        <p class="skills-tip">Drag / swipe / wheel to explore skills universe</p>
       </div>
     </section>
 
@@ -240,9 +266,11 @@
     </div>
   </footer>
 
+  <button class="to-top magnetic" id="to-top" aria-label="Back to top">Top</button>
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260302-2"></script>
 </body>
 </html>
