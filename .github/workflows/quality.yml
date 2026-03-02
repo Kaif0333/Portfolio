@@ -1,0 +1,36 @@
+name: Quality Checks
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Tools
+        run: |
+          npm init -y
+          npm install --save-dev @lhci/cli pa11y-ci http-server
+
+      - name: Start Static Server
+        run: npx http-server . -p 4173 &
+
+      - name: Wait For Server
+        run: npx wait-on http://127.0.0.1:4173
+
+      - name: Lighthouse CI
+        run: npx lhci autorun --config=./lighthouserc.json
+
+      - name: Accessibility Lint (Pa11y CI)
+        run: npx pa11y-ci --config ./pa11yci.json

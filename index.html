@@ -5,10 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shaik Mohammed Kaif Basha | Full Stack Developer</title>
   <meta name="description" content="Portfolio of Shaik Mohammed Kaif Basha - Full Stack Developer focused on backend systems, AI-enabled products, and high-performance web engineering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Shaik Mohammed Kaif Basha | Full Stack Developer" />
+  <meta property="og:description" content="Full stack engineer focused on backend systems, ML-enabled products, and performance-first architecture." />
+  <meta property="og:image" content="assets/og-cover.svg" />
+  <meta property="og:url" content="https://kaif0333.github.io/kaif-portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shaik Mohammed Kaif Basha | Full Stack Developer" />
+  <meta name="twitter:description" content="Backend, AI/ML, and production-grade full stack engineering." />
+  <meta name="twitter:image" content="assets/og-cover.svg" />
+  <link rel="canonical" href="https://kaif0333.github.io/kaif-portfolio/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260302-3" />
+  <link rel="stylesheet" href="styles.css?v=20260302-8" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shaik Mohammed Kaif Basha",
+    "url": "https://kaif0333.github.io/kaif-portfolio/",
+    "sameAs": [
+      "https://github.com/Kaif0333",
+      "https://www.linkedin.com/in/s-mohammedkaifbasha/"
+    ],
+    "jobTitle": "Full Stack Developer",
+    "knowsAbout": ["Python", "FastAPI", "Django", "PostgreSQL", "Machine Learning", "System Design"]
+  }
+  </script>
 </head>
 <body class="loading">
   <div class="scroll-progress" aria-hidden="true"><i id="scroll-progress-bar"></i></div>
@@ -40,27 +64,92 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#github">GitHub</a>
+      <a href="#now">Now</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="lang-toggle magnetic" id="lang-toggle" aria-label="Toggle language">EN</button>
+    <button class="theme-toggle magnetic" id="theme-toggle" aria-label="Toggle theme">Theme</button>
     <a class="btn btn-ghost magnetic" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
   </header>
+  <aside class="section-dock" aria-label="Section Progress">
+    <a href="#home" data-dock="home">Home</a>
+    <a href="#about" data-dock="about">About</a>
+    <a href="#skills" data-dock="skills">Skills</a>
+    <a href="#experience" data-dock="experience">Exp</a>
+    <a href="#projects" data-dock="projects">Work</a>
+    <a href="#github" data-dock="github">GitHub</a>
+    <a href="#now" data-dock="now">Now</a>
+    <a href="#testimonials" data-dock="testimonials">Voices</a>
+    <a href="#contact" data-dock="contact">Contact</a>
+  </aside>
 
   <main>
     <section class="hero" id="home">
-      <a class="launch-pill reveal" href="https://github.com/Kaif0333" target="_blank" rel="noreferrer">Live on GitHub: Kaif0333</a>
-      <p class="eyebrow reveal">FULL STACK ENGINEER • AI/ML ORIENTED</p>
-      <h1 class="hero-title reveal">
-        Building reliable software<br />
-        with <span>performance and clarity</span>
-      </h1>
-      <p class="hero-copy reveal">
-        I am Shaik Mohammed Kaif Basha. I build production-grade backend systems and full stack products with Python, FastAPI, Django, JavaScript, PostgreSQL, and cloud-ready engineering workflows.
-      </p>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <a class="launch-pill reveal" href="https://github.com/Kaif0333" target="_blank" rel="noreferrer">Live on GitHub: Kaif0333</a>
+          <p class="eyebrow reveal">FULL STACK ENGINEER • AI/ML ORIENTED</p>
+          <h1 class="hero-title">
+            Building reliable software<br />
+            with <span>performance and clarity</span>
+          </h1>
+          <p class="hero-copy">
+            I am Shaik Mohammed Kaif Basha. I build production-grade backend systems and full stack products with Python, FastAPI, Django, JavaScript, PostgreSQL, and cloud-ready engineering workflows.
+          </p>
 
-      <div class="hero-actions reveal">
-        <a class="btn btn-solid magnetic" href="#projects">Explore Projects</a>
-        <a class="btn btn-outline magnetic" href="https://www.linkedin.com/in/s-mohammedkaifbasha/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="btn btn-outline magnetic" href="mailto:smohammedkaifbasha@gmail.com">Get in Touch</a>
+          <div class="hero-actions">
+            <a class="btn btn-solid magnetic" href="#projects">Explore Projects</a>
+            <a class="btn btn-outline magnetic" href="https://www.linkedin.com/in/s-mohammedkaifbasha/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-outline magnetic" href="mailto:smohammedkaifbasha@gmail.com">Get in Touch</a>
+          </div>
+          <div class="deploy-links">
+            <a class="deploy-badge magnetic track-event" data-event="live_api_click" href="https://api.github.com/users/Kaif0333" target="_blank" rel="noreferrer">Live API</a>
+            <a class="deploy-badge magnetic track-event" data-event="docs_click" href="https://github.com/Kaif0333" target="_blank" rel="noreferrer">Docs</a>
+            <a class="deploy-badge magnetic track-event" data-event="status_click" href="#github">Status</a>
+          </div>
+
+          <div class="hero-quick-grid">
+            <article><h3>Backend First</h3><p>FastAPI, Django, scalable APIs</p></article>
+            <article><h3>AI/ML Ready</h3><p>Model integration into real products</p></article>
+            <article><h3>Performance</h3><p>Query tuning, caching, reliability</p></article>
+          </div>
+          <div class="hero-achievements">
+            <span>94% Fraud Model Accuracy</span>
+            <span>30% Query Latency Reduction</span>
+            <span>99% Service Uptime</span>
+          </div>
+          <div class="deploy-status" id="deploy-status" aria-live="polite">
+            <i></i><b>API Status:</b><span id="status-text">Checking live deployment...</span>
+          </div>
+        </div>
+
+        <aside class="hero-visual reveal" aria-label="Engineering Snapshot">
+          <div class="hero-visual-glow"></div>
+          <article class="hero-panel hero-panel-main">
+            <p class="hero-kicker">ENGINE SYSTEM</p>
+            <h3>Production Mode</h3>
+            <div class="hero-pulse"><span></span> Stable and Deployable</div>
+            <ul>
+              <li><b>API:</b> FastAPI / Django</li>
+              <li><b>Data:</b> PostgreSQL / Redis</li>
+              <li><b>Ops:</b> Docker / CI Ready</li>
+            </ul>
+          </article>
+          <div class="hero-metrics">
+            <article><h4>99%</h4><p>Uptime</p></article>
+            <article><h4>30%</h4><p>Latency Cut</p></article>
+            <article><h4>25%</h4><p>Bug Reduction</p></article>
+          </div>
+          <article class="hero-panel hero-panel-code" aria-label="Architecture snapshot">
+            <p class="hero-kicker">live_architecture.ts</p>
+            <pre><code>services:
+  api: FastAPI
+  jobs: Celery
+  cache: Redis
+  db: PostgreSQL</code></pre>
+          </article>
+        </aside>
       </div>
 
       <div class="stat-grid reveal">
@@ -156,21 +245,27 @@
       </div>
       <div class="project-grid">
         <article class="project-card reveal tilt">
+          <div class="project-thumb thumb-a" aria-hidden="true"></div>
           <div class="project-top"><span>FastAPI • Redis • Celery • ML</span><span>2025</span></div>
           <h3>SentinelStream Fraud Detection</h3>
           <p>Processed 1000+ transactions per minute and reached 94% fraud-detection accuracy with an optimized event pipeline.</p>
+          <button class="case-btn magnetic" data-case="sentinel">View Case Study</button>
           <a href="https://github.com/Kaif0333/sentinelstream-fraud-detection" target="_blank" rel="noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal tilt">
+          <div class="project-thumb thumb-b" aria-hidden="true"></div>
           <div class="project-top"><span>Django • ML • REST API</span><span>2025-2026</span></div>
           <h3>CuraMind AI</h3>
           <p>Built healthcare diagnostic workflows with ML prediction, secure auth, and real-time API-based monitoring.</p>
+          <button class="case-btn magnetic" data-case="curamind">View Case Study</button>
           <a href="https://github.com/Kaif0333/curamind-ai" target="_blank" rel="noreferrer">Open Repository</a>
         </article>
         <article class="project-card reveal tilt">
+          <div class="project-thumb thumb-c" aria-hidden="true"></div>
           <div class="project-top"><span>FastAPI • PostgreSQL</span><span>Internship</span></div>
           <h3>Backend Service Optimization</h3>
           <p>Improved backend reliability through schema/index tuning, profiling, and stable release practices.</p>
+          <button class="case-btn magnetic" data-case="optimization">View Case Study</button>
           <a href="#experience">View Experience</a>
         </article>
       </div>
@@ -186,7 +281,45 @@
         <article class="mini-stat"><h3 id="gh-total-stars">--</h3><p>Total Stars</p></article>
         <article class="mini-stat"><h3 id="gh-top-language">--</h3><p>Top Language</p></article>
       </div>
-      <div id="github-grid" class="repo-grid reveal"><article class="repo-placeholder">Loading repositories...</article></div>
+      <div id="github-grid" class="repo-grid reveal">
+        <article class="repo-card repo-skeleton" aria-hidden="true"></article>
+        <article class="repo-card repo-skeleton" aria-hidden="true"></article>
+        <article class="repo-card repo-skeleton" aria-hidden="true"></article>
+      </div>
+    </section>
+
+    <section class="section" id="now">
+      <div class="section-head reveal">
+        <p>Now</p>
+        <h2 data-i18n="now_title">What I am currently focused on</h2>
+      </div>
+      <div class="about-grid">
+        <article class="panel reveal">
+          <h3 data-i18n="now_learning_h">Learning</h3>
+          <p data-i18n="now_learning_p">Deepening system-design thinking for distributed backends and improving observability patterns for production services.</p>
+        </article>
+        <article class="panel reveal">
+          <h3 data-i18n="now_building_h">Building</h3>
+          <p data-i18n="now_building_p">Practical AI-assisted API systems with secure auth, async processing, and measurable runtime performance improvements.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="section-head reveal">
+        <p>Testimonials</p>
+        <h2 data-i18n="testimonials_title">What collaborators say</h2>
+      </div>
+      <div class="timeline">
+        <article class="panel reveal">
+          <p>"Kaif quickly understood backend constraints and delivered reliable FastAPI features with strong ownership."</p>
+          <h3>Team Lead, Zaalima Development</h3>
+        </article>
+        <article class="panel reveal">
+          <p>"He combines practical ML integration with robust API engineering, and his performance tuning work made clear impact."</p>
+          <h3>Senior Developer Collaborator</h3>
+        </article>
+      </div>
     </section>
 
     <section class="work-ticker" aria-label="availability">
@@ -208,7 +341,7 @@
   </main>
 
   <footer class="footer">
-    <p>Shaik Mohammed Kaif Basha - I build software that scales.</p>
+    <p>Shaik Mohammed Kaif Basha - I build software that scales. <span class="shortcuts-hint">Shortcuts: G/P/C/S/H</span></p>
     <div>
       <a href="https://www.linkedin.com/in/s-mohammedkaifbasha/" target="_blank" rel="noreferrer">LinkedIn</a>
       <a href="https://github.com/Kaif0333" target="_blank" rel="noreferrer">GitHub</a>
@@ -216,10 +349,35 @@
   </footer>
 
   <button class="to-top magnetic" id="to-top" aria-label="Back to top">Top</button>
+  <div class="case-modal" id="case-modal" aria-hidden="true">
+    <div class="case-modal-backdrop" data-close="case-modal"></div>
+    <article class="case-modal-card" role="dialog" aria-modal="true" aria-labelledby="case-title">
+      <button class="case-close magnetic" type="button" data-close="case-modal" aria-label="Close case study">Close</button>
+      <p id="case-kicker" class="hero-kicker">Case Study</p>
+      <h3 id="case-title">Project Title</h3>
+      <p id="case-summary"></p>
+      <div class="case-meta" id="case-meta"></div>
+      <h4>Architecture</h4>
+      <pre><code id="case-arch">service -> queue -> workers -> db</code></pre>
+      <h4>API Snippet</h4>
+      <pre><code id="case-snippet">GET /health</code></pre>
+      <h4>Approach</h4>
+      <ul id="case-approach"></ul>
+      <h4>Outcome</h4>
+      <ul id="case-outcome"></ul>
+    </article>
+  </div>
+  <div class="cmdk" id="cmdk" aria-hidden="true">
+    <div class="cmdk-backdrop" data-close="cmdk"></div>
+    <article class="cmdk-card" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <input id="cmdk-input" type="text" placeholder="Type: projects, github, contact, theme..." />
+      <div class="cmdk-list" id="cmdk-list"></div>
+    </article>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-  <script src="script.js?v=20260302-3"></script>
+  <script src="script.js?v=20260302-8"></script>
 </body>
 </html>
