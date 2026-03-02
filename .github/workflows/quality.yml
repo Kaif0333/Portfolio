@@ -1,10 +1,9 @@
 name: Quality Checks
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   quality:
@@ -21,7 +20,7 @@ jobs:
       - name: Install Tools
         run: |
           npm init -y
-          npm install --save-dev @lhci/cli pa11y-ci http-server
+          npm install --save-dev @lhci/cli pa11y-ci http-server wait-on
 
       - name: Start Static Server
         run: npx http-server . -p 4173 &
