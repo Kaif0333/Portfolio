@@ -2,38 +2,30 @@ import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import { FaGithub } from "react-icons/fa6";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
-    image: "/images/Solidx.png",
+    title: "CuraMind AI",
+    category: "Healthcare Diagnostic Platform",
+    tools: "Python, Django, HTML5, CSS3, JavaScript, Machine Learning",
+    image: "/images/curamind-ai.png",
+    github: "https://github.com/Kaif0333/curamind-ai.git"
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
-    image: "/images/radix.png",
+    title: "Adverse Drug Effect Detection System",
+    category: "Machine Learning / NLP",
+    tools: "Python, Machine Learning, NLP, Scikit-learn, Pandas",
+    image: "/images/Adverse-Drug.png",
+    github: "https://github.com/Kaif0333/Adverse-Drug-Effect-Detection.git"
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
-    image: "/images/bond.png",
-  },
-  {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
-    image: "/images/sapphire.png",
-  },
-  {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
-    image: "/images/Maxlife.png",
-  },
+    title: "Meeting Room Booking",
+    category: "Web Application",
+    tools: "Full Stack Development",
+    image: "/images/meeting-room-booking.png",
+    github: "https://github.com/Kaif0333/meeting-room-booking.git"
+  }
 ];
 
 const Work = () => {
@@ -93,11 +85,16 @@ const Work = () => {
             <div
               className="carousel-track"
               style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
+                width: `${projects.length * 100}%`,
+                transform: `translateX(-${(currentIndex * 100) / projects.length}%)`,
               }}
             >
               {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
+                <div 
+                  className="carousel-slide" 
+                  key={index} 
+                  style={{ width: `${100 / projects.length}%`, minWidth: 'auto' }}
+                >
                   <div className="carousel-content">
                     <div className="carousel-info">
                       <div className="carousel-number">
@@ -112,6 +109,18 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.github && (
+                          <div style={{ marginTop: '1rem' }}>
+                            <a 
+                              href={project.github} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}
+                            >
+                              <FaGithub /> View Repository
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
