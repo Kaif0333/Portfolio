@@ -2,8 +2,6 @@
 
 Personal developer portfolio for **Shaik Mohammed Kaif Basha**, showcasing full stack development work, backend projects, AI/ML projects, client websites, and contact links.
 
-![Portfolio Preview](https://github.com/Kaif0333/Kaif0333/raw/main/assets/previews/personal-portfolio.svg)
-
 ## Live Website
 
 - [Portfolio](https://kaif0333-portfolio.vercel.app/)
