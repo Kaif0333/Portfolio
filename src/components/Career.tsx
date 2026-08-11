@@ -2,7 +2,7 @@ import "./styles/Career.css";
 
 const Career = () => {
   return (
-    <div className="career-section section-container">
+    <section className="career-section section-container">
       <div className="career-container">
         <h2>
           My career <span>&</span>
@@ -15,18 +15,38 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Python Developer Intern</h4>
-                <h5>Zaalima Development</h5>
+                <h3>Freelance Web Developer</h3>
+                <p className="career-company">Remote — Client Projects</p>
               </div>
-              <h3>2025</h3>
+              <p className="career-year">2025+</p>
             </div>
             <p>
-              Developed backend services with Python and FastAPI, writing clean and scalable code. Reduced query time by 30 percent through PostgreSQL optimization and indexing. Cut bug reports by 25 percent through automated testing and debugging. Collaborated with managers and engineers in agile sprints maintaining 99 percent uptime.
+              Designing and shipping production websites for clients in real
+              estate, tourism, retail and finance — including a RERA-approved
+              luxury housing site and a personal brand site for a US-based
+              financial executive. Responsive, animated, SEO-ready builds
+              delivered end to end.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h3>Python Developer Intern</h3>
+                <p className="career-company">Zaalima Development</p>
+              </div>
+              <p className="career-year">2025</p>
+            </div>
+            <p>
+              Developed FastAPI backend services and PostgreSQL-backed REST
+              endpoints for web application workflows. Optimized queries and
+              indexes to improve response performance, implemented
+              user-management APIs, and collaborated in Git-based agile sprints
+              with automated testing and debugging.
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

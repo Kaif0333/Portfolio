@@ -391,3 +391,7 @@
     line-height: 6.8rem;
   }
 }
+
+.what-title-line {
+  display: block;
+}

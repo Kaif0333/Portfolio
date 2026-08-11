@@ -65,7 +65,7 @@
 .resume-button:hover {
   color: #fff;
 }
-div.resume-button span {
+.resume-button span {
   color: #fff;
   font-size: 17px;
   margin-top: -1px;
@@ -96,7 +96,7 @@ div.resume-button span {
     font-size: 20px;
     line-height: 20px;
   }
-  div.resume-button span {
+  .resume-button span {
     font-size: 23px;
     margin-top: -1.5px;
   }

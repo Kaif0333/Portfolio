@@ -9,18 +9,13 @@ export default function handleResize(
   character: THREE.Object3D
 ) {
   if (!canvasDiv.current) return;
-  let canvas3d = canvasDiv.current.getBoundingClientRect();
-  const width = canvas3d.width;
-  const height = canvas3d.height;
-  renderer.setSize(width, height);
-  camera.aspect = width / height;
+  const canvas3d = canvasDiv.current.getBoundingClientRect();
+  renderer.setSize(canvas3d.width, canvas3d.height);
+  camera.aspect = canvas3d.width / canvas3d.height;
   camera.updateProjectionMatrix();
-  const workTrigger = ScrollTrigger.getById("work");
-  ScrollTrigger.getAll().forEach((trigger) => {
-    if (trigger != workTrigger) {
-      trigger.kill();
-    }
-  });
+  // The timeline builders clean up their own previous triggers (gsap.context),
+  // so a rebuild here no longer nukes unrelated ScrollTriggers.
   setCharTimeline(character, camera);
   setAllTimeline();
+  ScrollTrigger.refresh();
 }

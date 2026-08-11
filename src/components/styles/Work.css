@@ -270,7 +270,7 @@
   }
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1024px) {
   .carousel-content {
     flex-direction: column;
     gap: 30px;
@@ -328,4 +328,22 @@
   .work-image img {
     max-height: 250px;
   }
+}
+.carousel-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.carousel-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.carousel-link:hover {
+  color: var(--accentColor);
 }

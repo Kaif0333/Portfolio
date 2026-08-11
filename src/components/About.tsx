@@ -2,14 +2,20 @@ import "./styles/About.css";
 
 const About = () => {
   return (
-    <div className="about-section" id="about">
+    <section className="about-section" id="about">
       <div className="about-me">
-        <h3 className="title">About Me</h3>
+        <h2 className="title about-title">About Me</h2>
         <p className="para">
-          Full Stack Developer specializing in Python, Java, and JavaScript. I build scalable web applications with clean, maintainable code. Through rigorous testing and optimization, I've driven 40% performance improvements. I bring strong problem-solving skills to both independent and collaborative projects.
+          I'm a Python backend developer and full stack engineer who enjoys
+          taking products from idea to production. I build FastAPI and Django
+          services backed by PostgreSQL, and craft polished, animated web
+          experiences for freelance clients across real estate, tourism,
+          finance and e-commerce. Recent work spans a healthcare diagnostics
+          platform, a FinTech transaction-monitoring API, and live sites used
+          by real businesses. B.Tech CSE (AI/ML), Class of 2026.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

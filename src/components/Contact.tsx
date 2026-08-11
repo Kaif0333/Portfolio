@@ -3,58 +3,62 @@ import "./styles/Contact.css";
 
 const Contact = () => {
   return (
-    <div className="contact-section section-container" id="contact">
+    <footer className="contact-section section-container" id="contact">
       <div className="contact-container">
-        <h3>Contact</h3>
+        <h2 className="contact-title">Contact</h2>
         <div className="contact-flex">
           <div className="contact-box">
-            <h4>Email</h4>
+            <h3>Email</h3>
             <p>
               <a href="mailto:smohammedkaifbasha@gmail.com" data-cursor="disable">
                 smohammedkaifbasha@gmail.com
               </a>
             </p>
-            <h4>Education</h4>
+            <h3>Education</h3>
             <p>B.Tech CSE (AIML)</p>
           </div>
           <div className="contact-box">
-            <h4>Social</h4>
+            <h3>Social</h3>
             <a
               href="https://github.com/Kaif0333"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              Github <MdArrowOutward />
+              Github <MdArrowOutward aria-hidden="true" />
             </a>
             <a
               href="https://linkedin.com/in/s-mohammedkaifbasha"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              Linkedin <MdArrowOutward />
+              Linkedin <MdArrowOutward aria-hidden="true" />
             </a>
             <a
               href="https://www.instagram.com/kaif._3/"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              Instagram <MdArrowOutward />
+              Instagram <MdArrowOutward aria-hidden="true" />
             </a>
           </div>
           <div className="contact-box">
-            <h2>
-              Designed and Developed <br /> by <span>Shaik Mohammed Kaif Basha</span>
-            </h2>
-            <h5>
-              <MdCopyright /> 2026
-            </h5>
+            <p className="contact-credit">
+              Designed and Developed <br /> by{" "}
+              <span>Shaik Mohammed Kaif Basha</span>
+            </p>
+            <p className="contact-year">
+              <MdCopyright aria-hidden="true" /> {new Date().getFullYear()}
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

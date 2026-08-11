@@ -1,20 +1,34 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
-import { SplitText } from "gsap-trial/SplitText";
+import { SplitText } from "gsap/SplitText";
+import { prefersReducedMotion } from "./motion";
 
 interface ParaElement extends HTMLElement {
   anim?: gsap.core.Animation;
   split?: SplitText;
 }
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function setSplitText() {
   ScrollTrigger.config({ ignoreMobileResize: true });
-  if (window.innerWidth < 900) return;
   const paras: NodeListOf<ParaElement> = document.querySelectorAll(".para");
   const titles: NodeListOf<ParaElement> = document.querySelectorAll(".title");
+
+  // On small screens and for reduced-motion users, skip the reveal animation
+  // but make sure the text is actually visible.
+  if (window.innerWidth < 900 || prefersReducedMotion()) {
+    [...paras, ...titles].forEach((el) => {
+      el.classList.add("visible");
+      if (el.anim) {
+        el.anim.progress(1).kill();
+        el.anim = undefined;
+      }
+      el.split?.revert();
+      el.split = undefined;
+    });
+    return;
+  }
 
   const TriggerStart = window.innerWidth <= 1024 ? "top 60%" : "20% 60%";
   const ToggleAction = "play pause resume reverse";
@@ -75,6 +89,4 @@ export default function setSplitText() {
       }
     );
   });
-
-  ScrollTrigger.addEventListener("refresh", () => setSplitText());
 }

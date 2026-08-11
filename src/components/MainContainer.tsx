@@ -6,31 +6,53 @@ import Cursor from "./Cursor";
 import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
+import TechStackGrid from "./TechStackGrid";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import { debounce, isDesktopWidth, prefersReducedMotion } from "./utils/motion";
+import { getSmoother } from "./Navbar";
+import { useLoading } from "../context/LoadingProvider";
 
 const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = ({ children }: PropsWithChildren) => {
-  const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    window.innerWidth > 1024
-  );
+  const [isDesktopView, setIsDesktopView] = useState<boolean>(isDesktopWidth());
+  const { isLoading, setLoading } = useLoading();
 
   useEffect(() => {
-    const resizeHandler = () => {
+    setSplitText();
+    // Without the 3D character (reduced motion), nothing else drives the
+    // loading progress — complete it here so the site unlocks.
+    if (prefersReducedMotion()) {
+      setLoading(100);
+    }
+    const resizeHandler = debounce(() => {
       setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
-    };
-    resizeHandler();
+      setIsDesktopView(isDesktopWidth());
+    }, 200);
     window.addEventListener("resize", resizeHandler);
     return () => {
+      resizeHandler.cancel();
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, [setLoading]);
 
   return (
     <div className="container-main">
+      <a
+        className="skip-link"
+        href="#about"
+        onClick={(e) => {
+          const smoother = getSmoother();
+          if (smoother) {
+            e.preventDefault();
+            smoother.scrollTo("#about", true, "top top");
+          }
+        }}
+      >
+        Skip to content
+      </a>
       <Cursor />
       <Navbar />
       <SocialIcons />
@@ -43,10 +65,16 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <WhatIDo />
             <Career />
             <Work />
-            {isDesktopView && (
-              <Suspense fallback={<div>Loading....</div>}>
-                <TechStack />
-              </Suspense>
+            {isDesktopView ? (
+              // Deferred until the loader exits so the heavy physics bundle
+              // never competes with the character model on the critical path.
+              !isLoading && (
+                <Suspense fallback={null}>
+                  <TechStack />
+                </Suspense>
+              )
+            ) : (
+              <TechStackGrid />
             )}
             <Contact />
           </div>

@@ -10,28 +10,27 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (percent < 100) return;
+    const timer1 = setTimeout(() => {
       setLoaded(true);
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+      setTimeout(() => setIsLoaded(true), 500);
+    }, 300);
+    return () => clearTimeout(timer1);
+  }, [percent]);
 
   useEffect(() => {
+    if (!isLoaded) return;
+    let timer: number | undefined;
     import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
-        setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
-      }
+      setClicked(true);
+      timer = setTimeout(() => {
+        module.initialFX();
+        setIsLoading(false);
+      }, 400);
     });
-  }, [isLoaded]);
+    return () => clearTimeout(timer);
+  }, [isLoaded, setIsLoading]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
     const { currentTarget: target } = e;
@@ -45,10 +44,10 @@ const Loading = ({ percent }: { percent: number }) => {
   return (
     <>
       <div className="loading-header">
-        <a href="/#" className="loader-title" data-cursor="disable">
+        <span className="loader-title" data-cursor="disable">
           KB
-        </a>
-        <div className={`loaderGame ${clicked && "loader-out"}`}>
+        </span>
+        <div className={`loaderGame ${clicked ? "loader-out" : ""}`} aria-hidden="true">
           <div className="loaderGame-container">
             <div className="loaderGame-in">
               {[...Array(27)].map((_, index) => (
@@ -60,18 +59,23 @@ const Loading = ({ percent }: { percent: number }) => {
         </div>
       </div>
       <div className="loading-screen">
-        <div className="loading-marquee">
+        <div className="loading-marquee" aria-hidden="true">
           <Marquee>
             <span> Full Stack Developer</span> <span>Software Engineer</span>
             <span> Full Stack Developer</span> <span>Software Engineer</span>
           </Marquee>
         </div>
         <div
-          className={`loading-wrap ${clicked && "loading-clicked"}`}
+          className={`loading-wrap ${clicked ? "loading-clicked" : ""}`}
           onMouseMove={(e) => handleMouseMove(e)}
         >
           <div className="loading-hover"></div>
-          <div className={`loading-button ${loaded && "loading-complete"}`}>
+          <div
+            className={`loading-button ${loaded ? "loading-complete" : ""}`}
+            role="status"
+            aria-live="polite"
+            aria-label={loaded ? "Loaded" : `Loading ${percent} percent`}
+          >
             <div className="loading-container">
               <div className="loading-content">
                 <div className="loading-content-in">
@@ -91,45 +95,3 @@ const Loading = ({ percent }: { percent: number }) => {
 };
 
 export default Loading;
-
-export const setProgress = (setLoading: (value: number) => void) => {
-  let percent: number = 0;
-
-  let interval = setInterval(() => {
-    if (percent <= 50) {
-      let rand = Math.round(Math.random() * 5);
-      percent = percent + rand;
-      setLoading(percent);
-    } else {
-      clearInterval(interval);
-      interval = setInterval(() => {
-        percent = percent + Math.round(Math.random());
-        setLoading(percent);
-        if (percent > 91) {
-          clearInterval(interval);
-        }
-      }, 2000);
-    }
-  }, 100);
-
-  function clear() {
-    clearInterval(interval);
-    setLoading(100);
-  }
-
-  function loaded() {
-    return new Promise<number>((resolve) => {
-      clearInterval(interval);
-      interval = setInterval(() => {
-        if (percent < 100) {
-          percent++;
-          setLoading(percent);
-        } else {
-          resolve(percent);
-          clearInterval(interval);
-        }
-      }, 2);
-    });
-  }
-  return { loaded, percent, clear };
-};

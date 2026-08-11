@@ -1,43 +1,66 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import "./styles/WhatIDo.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const services = [
+  {
+    title: "FRONTEND",
+    subtitle: "Building Interactive UIs",
+    description:
+      "Crafting responsive, animated interfaces with modern frameworks. From landing pages to full products, I deliver pixel-perfect experiences.",
+    skills: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "GSAP",
+      "Responsive Design",
+    ],
+  },
+  {
+    title: "BACKEND",
+    subtitle: "Scalable Server Architecture",
+    description:
+      "Designing robust APIs and services with Python. From REST endpoints to async workflows, I build backends that scale.",
+    skills: [
+      "Python",
+      "FastAPI",
+      "Django",
+      "Flask",
+      "REST APIs",
+      "PostgreSQL",
+      "MongoDB",
+      "Docker",
+    ],
+  },
+];
 
 const WhatIDo = () => {
   const containerRef = useRef<(HTMLDivElement | null)[]>([]);
   const setRef = (el: HTMLDivElement | null, index: number) => {
     containerRef.current[index] = el;
   };
-  useEffect(() => {
-    if (ScrollTrigger.isTouch) {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
-        }
-      });
-    }
-    return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
-      });
-    };
-  }, []);
+
+  const toggleCard = (container: HTMLDivElement | null) => {
+    if (container) handleClick(container);
+  };
+
   return (
-    <div className="whatIDO">
+    <section className="whatIDO">
       <div className="what-box">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
-          <div>
+          <span className="what-title-line">
             I<span className="do-h2"> DO</span>
-          </div>
+          </span>
         </h2>
       </div>
       <div className="what-box">
         <div className="what-box-in">
-          <div className="what-border2">
-            <svg width="100%">
+          <div className="what-border2" aria-hidden="true">
+            <svg width="100%" aria-hidden="true" focusable="false">
               <line
                 x1="0"
                 y1="0"
@@ -58,97 +81,71 @@ const WhatIDo = () => {
               />
             </svg>
           </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={`what-content ${
+                ScrollTrigger.isTouch ? "" : "what-noTouch"
+              }`}
+              ref={(el) => setRef(el, index)}
+              role="button"
+              tabIndex={0}
+              aria-label={`${service.title}: ${service.subtitle}`}
+              onClick={() => {
+                if (ScrollTrigger.isTouch) toggleCard(containerRef.current[index]);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleCard(containerRef.current[index]);
+                }
+              }}
+            >
+              <div className="what-border1" aria-hidden="true">
+                <svg height="100%" aria-hidden="true" focusable="false">
+                  {index === 0 && (
+                    <line
+                      x1="0"
+                      y1="0"
+                      x2="100%"
+                      y2="0"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeDasharray="6,6"
+                    />
+                  )}
+                  <line
+                    x1="0"
+                    y1="100%"
+                    x2="100%"
+                    y2="100%"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeDasharray="6,6"
+                  />
+                </svg>
+              </div>
+              <div className="what-corner" aria-hidden="true"></div>
 
-            <div className="what-content-in">
-              <h3>FRONTEND</h3>
-              <h4>Building Interactive UIs</h4>
-              <p>
-                Crafting performant, responsive interfaces with modern frameworks.
-                From SPAs to micro-frontends, I deliver pixel-perfect experiences.
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">React.js</div>
-                <div className="what-tags">Angular</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">Material UI</div>
-                <div className="what-tags">HTML5</div>
-                <div className="what-tags">CSS3</div>
+              <div className="what-content-in">
+                <h3>{service.title}</h3>
+                <h4>{service.subtitle}</h4>
+                <p>{service.description}</p>
+                <h5>Skillset & tools</h5>
+                <div className="what-content-flex">
+                  {service.skills.map((skill) => (
+                    <div className="what-tags" key={skill}>
+                      {skill}
+                    </div>
+                  ))}
+                </div>
+                <div className="what-arrow" aria-hidden="true"></div>
               </div>
-              <div className="what-arrow"></div>
             </div>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
-            <div className="what-content-in">
-              <h3>BACKEND</h3>
-              <h4>Scalable Server Architecture</h4>
-              <p>
-                Designing robust APIs and microservices. From CMS platforms to
-                complex business logic, I build backends that scale.
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">NestJS</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">REST APIs</div>
-                <div className="what-tags">Microservices</div>
-                <div className="what-tags">Python</div>
-              </div>
-              <div className="what-arrow"></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

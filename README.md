@@ -1,44 +1,54 @@
-# Shaik Mohammed Kaif Basha - Developer Portfolio
+# Shaik Mohammed Kaif Basha — Developer Portfolio
 
-A highly immersive and visually engaging 3D portfolio website built to showcase my skills as a Full Stack Developer specializing in Python, Java, and JavaScript.
+An interactive 3D portfolio website showcasing my work as a Python backend
+developer and full stack engineer — featuring an animated 3D character,
+physics-based tech stack, smooth scroll choreography, and my freelance client
+projects.
 
-## 🚀 Technologies Used
-- **Frontend Framework**: React.js, Vite
-- **3D Graphics**: Three.js, React Three Fiber, React Three Rapier (Physics engine)
-- **Animations**: GSAP (ScrollSmoother, ScrollTrigger)
-- **Styling**: Advanced Vanilla CSS with modern aesthetics (Glassmorphism, Dark UI)
-- **Icons**: React Icons
+**Live:** [kaif0333-portfolio.vercel.app](https://kaif0333-portfolio.vercel.app/)
 
-## 🌟 Key Features
-- **Interactive 3D Tech Stack**: A physics-based container featuring spheres mapped with 3D textures of core technologies (Python, PostgreSQL, React, Node, Django, Flask, FastAPI). 
-- **Premium Fluid Scrolling**: Flawless, silky-smooth scrolling implemented with GSAP ScrollSmoother.
-- **Dynamic Project Carousel**: A beautifully styled, fully responsive project carousel for highlighting featured work like CuraMind AI and Adverse Drug Effect Detection System—with direct GitHub integration.
-- **Custom Mouse interactions**: Interactive hover effects and a dynamic cursor logic spanning the entire site.
+## 🚀 Technologies
 
-## 🛠️ Installation & Setup
+- **Frontend:** React 18, TypeScript, Vite
+- **3D:** Three.js (character scene), React Three Fiber + Rapier physics (tech stack)
+- **Animation:** GSAP — ScrollSmoother, ScrollTrigger, SplitText
+- **Styling:** Vanilla CSS (dark UI, glassmorphism), self-hosted Geist font
+- **Deployment:** Vercel (+ Vercel Analytics)
 
-To run this project locally, make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+## 🌟 Features
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Kaif0333/kaif-portfolio.git
-   cd kaif-portfolio
-   ```
+- Scroll-driven 3D character choreography with real download-progress loading
+  (and a graceful fallback if the model fails to load)
+- Physics-based tech stack spheres (desktop) with a static grid fallback on mobile
+- Project carousel with live client sites: real estate, tourism, e-commerce,
+  and personal brand work
+- Accessible: semantic landmarks, keyboard focus styles, reduced-motion support
+- SEO-ready: Open Graph/Twitter cards, sitemap, JSON-LD
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+## 🛠️ Development
 
-3. **Start the dev server:**
-   ```bash
-   npm run dev
-   ```
+Requires [Node.js](https://nodejs.org/) 20+.
 
-4. Open your browser and navigate to `http://localhost:5173` (or the port Vite provides) to see the magic!
+```bash
+git clone https://github.com/Kaif0333/Portfolio.git
+cd Portfolio
+npm install
+npm run dev       # start dev server
+npm run lint      # eslint
+npm run build     # type-check + production build
+npm run preview   # serve the production build locally
+```
+
+## 🙏 Attribution
+
+This site started from the open-source portfolio template by
+[Moncy Yohannan](https://github.com/MoncyDev/Portfolio-Website) (MIT licensed at
+the time of forking) and has been substantially modified — content, projects,
+performance, accessibility, and tooling. See [LICENSE](LICENSE).
 
 ## 📬 Contact
-- **Email**: [smohammedkaifbasha@gmail.com](mailto:smohammedkaifbasha@gmail.com)
-- **LinkedIn**: [linkedin.com/in/s-mohammedkaifbasha](https://linkedin.com/in/s-mohammedkaifbasha)
-- **GitHub**: [Kaif0333](https://github.com/Kaif0333)
-- **Instagram**: [kaif._3](https://www.instagram.com/kaif._3/)
+
+- **Email:** [smohammedkaifbasha@gmail.com](mailto:smohammedkaifbasha@gmail.com)
+- **LinkedIn:** [linkedin.com/in/s-mohammedkaifbasha](https://linkedin.com/in/s-mohammedkaifbasha)
+- **GitHub:** [Kaif0333](https://github.com/Kaif0333)
+- **Instagram:** [kaif._3](https://www.instagram.com/kaif._3/)

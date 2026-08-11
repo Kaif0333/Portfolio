@@ -2,7 +2,7 @@ import {
   createContext,
   PropsWithChildren,
   useContext,
-  useEffect,
+  useMemo,
   useState,
 } from "react";
 import Loading from "../components/Loading";
@@ -13,27 +13,28 @@ interface LoadingType {
   setLoading: (percent: number) => void;
 }
 
+// Context + hook are co-located with the provider by design.
+// eslint-disable-next-line react-refresh/only-export-components
 export const LoadingContext = createContext<LoadingType | null>(null);
 
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(0);
 
-  const value = {
-    isLoading,
-    setIsLoading,
-    setLoading,
-  };
-  useEffect(() => {}, [loading]);
+  const value = useMemo<LoadingType>(
+    () => ({ isLoading, setIsLoading, setLoading }),
+    [isLoading]
+  );
 
   return (
-    <LoadingContext.Provider value={value as LoadingType}>
+    <LoadingContext.Provider value={value}>
       {isLoading && <Loading percent={loading} />}
       <main className="main-body">{children}</main>
     </LoadingContext.Provider>
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLoading = () => {
   const context = useContext(LoadingContext);
   if (!context) {
